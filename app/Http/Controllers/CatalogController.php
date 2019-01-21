@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class CatalogController extends Controller
 {
+	public $id;
 	private $arrayPeliculas=array(
 		array(
 			'title' => 'El padrino',
@@ -175,16 +176,18 @@ class CatalogController extends Controller
     	
     	return view('catalog.index')->with('arrayPeliculas',$this->arrayPeliculas);
     }
-    public function getedit()
+    public function getedit($id)
     {
-    	return view('catalog.edit', array('id'=>$id));
+
+    	return view('catalog.edit', array('idPelicula'=>$this->arrayPeliculas[$id]));
     }
     public function getCreate()
     {
     	return view('catalog.create');
     }
-    public function getShow()
+    public function getShow($id)
     {
-    	return view('catalog.show', array('id'=>$id));
+    	
+    	return view('catalog.show', array('idPelicula'=>$this->arrayPeliculas[$id]))->with('id',$id);
     }
 }

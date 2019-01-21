@@ -25,7 +25,7 @@ Route::get('/logout', function(){
 Route::get('/catalog','CatalogController@getIndex');
 Route::get('catalog/show/{id?}','CatalogController@getShow');
 Route::get('catalog/create','CatalogController@getCreate');
-Route::get('catalog/edit/{id?}','CatalogController@getEdit');
+Route::get('catalog/edit/{id?}','CatalogController@getedit');
 
 Route::get('partials/navbar', function(){
 	return view('partials.navbar');

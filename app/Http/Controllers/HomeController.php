@@ -9,6 +9,6 @@ class HomeController extends Controller
     //
     public function getHome()
     {
-    	return 'Pantalla principal';
+    	return redirect()->action('CatalogController@getIndex');
     }
 }
