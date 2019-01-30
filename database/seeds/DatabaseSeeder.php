@@ -186,13 +186,24 @@ class DatabaseSeeder extends Seeder
 			$p->rented = $pelicula['rented'];
 			$p->synopsis = $pelicula['synopsis'];
 			$p->save();
-}
+	}
     	}
+    private function seedUser()
+    {
+    	DB::table('users')->delete();
+    	$user = new User;
+    	$user->name = $user->input('name');
+    	$user->email= $user->input('email');
+    	$user->password = bcrypt(input('password'));
+    }	
     
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
         self::seedCatalog();
         $this->command->info('Tabla catalogo inicializada con datos');
+
+        self::seedUsers();
+        $this->command->info('Tabla usuarios inicializada con datos!');
     }
 }

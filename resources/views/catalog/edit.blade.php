@@ -8,34 +8,35 @@
          </div>
          <div class="card-body" style="padding:30px">
 
-           <form action="{{url('CatalogCotroller@getedit')}}" method="POST">
+           <form action="#" method="POST">
+            {{ method_field('PUT')}}
            	{{CSRF_FIELD()}}
 
             <div class="form-group">
                <label for="title">Título</label>
-               <input type="text" name="title" id="title" value="{{$idPelicula['title']}}" class="form-control">
+               <input type="text" name="title" id="title" value="{{$pelicula->title}}" class="form-control">
             </div>
 
             <div class="form-group">
             	<label for="year">Año</label>
-               <input type="text" name="year" id="year" value="{{$idPelicula['year']}}" class="form-control">
+               <input type="text" name="year" id="year" value="{{$pelicula->year}}" class="form-control">
             </div>
 
             <div class="form-group">
             	<label for="director">Director</label>
-               <input type="text" name="director" id="director" value="{{$idPelicula['director']}}" class="form-control">
+               <input type="text" name="director" id="director" value="{{$pelicula->director}}" class="form-control">
                
             </div>
 
             <div class="form-group">
                <label for="poster">Poster</label>
                
-               <img src="{{$idPelicula['poster']}}" style="height:200px"/>
+               <input type="text" value="{{$pelicula->poster}}" id="poster" class="form-control">
             </div>
 
             <div class="form-group">
                <label for="synopsis">Resumen</label>
-               <textarea name="synopsis" id="synopsis" class="form-control">"{{$idPelicula['synopsis']}}"</textarea>
+               <textarea name="synopsis" id="synopsis" class="form-control">"{{$pelicula->synopsis}}"</textarea>
             </div>
 
             <div class="form-group text-center">

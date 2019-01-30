@@ -3,19 +3,19 @@
 Listado peliculas
 <div class="row">
 	<div class="col-sm-4">
-		<img src="{{$idPelicula['poster']}}" style="height:200px"/>
+		<img src="{{$pelicula->poster}}" style="height:200px"/>
 
 	</div>
 <div class="col-sm-8">
 	
-{{$idPelicula['title']}}
-{{$idPelicula['year']}}
-{{$idPelicula['director']}}
-{{$idPelicula['synopsis']}}
+{{$pelicula->title}}
+{{$pelicula->year}}
+{{$pelicula->director}}
+{{$pelicula->synopsis}}
 <br>
-@if($idPelicula['rented'] == false)
+@if($pelicula['rented'] == false)
 	<strong>Pelicula Disponible</strong><br>
-	<a href="{{'/catalog/create'}}" type="button" class="btn btn-primary" >Alquilar Pelicula</a>
+	<a href="{{ url('catalog/create/') }}" type="button" class="btn btn-primary" >Alquilar Pelicula</a>
 
 	@else
 	<strong>Pelicula Alquilada</strong>
@@ -24,7 +24,7 @@ Listado peliculas
 	@endif
 
 
-	<a href="{{'/catalog/edit/' . $id}}" type="button" class="btn btn-warning" >Editar Pelicula</a>
+	<a href="{{ url('/catalog/edit/' . $pelicula->id ) }}" type="button" class="btn btn-warning" >Editar Pelicula</a>
 
 
 	<a href="{{'/catalog'}}" type="button" class="btn btn-default" >Volver al listado</a>
